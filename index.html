@@ -13,13 +13,27 @@
     }
     body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background: url('https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
       overflow-x: hidden;
-      animation: backgroundFade 20s ease infinite alternate;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(15, 32, 39, 0.85);
+      z-index: 0;
+    }
+    header, .container {
+      position: relative;
+      z-index: 1;
     }
     header {
-      background: transparent;
       text-align: center;
       padding: 60px 20px 40px;
       animation: fadeInSlide 1.4s ease-out both;
@@ -103,10 +117,6 @@
     @keyframes rotateGlow {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
-    }
-    @keyframes backgroundFade {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
     }
   </style>
 </head>
