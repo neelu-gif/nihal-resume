@@ -5,50 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nihal Kiran Nath - Interactive Resume</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+    * {
       margin: 0;
-      background: #f2f2f2;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(120deg, #f0f4f8, #dbeafe);
       color: #333;
+      overflow-x: hidden;
     }
     header {
       background: #1e3a8a;
       color: white;
-      padding: 20px;
+      padding: 40px 20px;
       text-align: center;
+      animation: fadeInDown 1s ease-out;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 20px;
+      gap: 25px;
+      padding: 40px;
     }
     .tile {
       background: white;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
       cursor: pointer;
+      animation: zoomIn 0.6s ease forwards;
     }
     .tile:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 30px rgba(0,0,0,0.2);
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
     .tile h2 {
-      margin-top: 0;
       color: #1e3a8a;
+      margin-bottom: 10px;
+    }
+    .tile p {
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
     .hidden {
       display: none;
+    }
+    a {
+      color: #facc15;
+      text-decoration: underline;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideInUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Nihal Kiran Nath</h1>
-    <p>AI | Web Dev | Full Stack | Problem Solver</p>
-    <p>📞 +91-XXXXXXXXXX | ✉️ nihalkiran@example.com | 🔗 <a href="#" style="color: #fff; text-decoration: underline">LinkedIn</a></p>
+    <p style="font-size: 1.2rem; animation: slideInUp 1.2s ease-out;">AI | Web Dev | Full Stack | Problem Solver</p>
+    <p style="margin-top: 10px; animation: slideInUp 1.4s ease-out;">📞 +91-XXXXXXXXXX | ✉️ nihalkiran@example.com | 🔗 <a href="#">LinkedIn</a></p>
   </header>
 
   <div class="container">
