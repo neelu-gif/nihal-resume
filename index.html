@@ -13,76 +13,108 @@
     }
     body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(120deg, #f0f4f8, #dbeafe);
-      color: #333;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
       overflow-x: hidden;
+      animation: backgroundFade 20s ease infinite alternate;
     }
     header {
-      background: #1e3a8a;
-      color: white;
-      padding: 40px 20px;
+      background: transparent;
       text-align: center;
-      animation: fadeInDown 1s ease-out;
+      padding: 60px 20px 40px;
+      animation: fadeInSlide 1.4s ease-out both;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 10px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #e0f7fa;
+      animation: pulseText 3s ease-in-out infinite;
     }
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
       padding: 40px;
+      animation: fadeUp 1.6s ease-out both;
     }
     .tile {
-      background: white;
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
       padding: 25px;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
       cursor: pointer;
-      animation: zoomIn 0.6s ease forwards;
+      position: relative;
+      overflow: hidden;
     }
     .tile:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+    .tile::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+      animation: rotateGlow 10s linear infinite;
     }
     .tile h2 {
-      color: #1e3a8a;
-      margin-bottom: 10px;
+      color: #90cdf4;
+      margin-bottom: 12px;
     }
     .tile p {
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.6;
+      color: #e2e8f0;
     }
     .hidden {
       display: none;
     }
     a {
-      color: #facc15;
+      color: #ffd700;
+      text-decoration: none;
+    }
+    a:hover {
       text-decoration: underline;
     }
 
-    @keyframes fadeInDown {
+    @keyframes fadeInSlide {
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes slideInUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    @keyframes pulseText {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 1; }
+    }
+    @keyframes rotateGlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes backgroundFade {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Nihal Kiran Nath</h1>
-    <p style="font-size: 1.2rem; animation: slideInUp 1.2s ease-out;">AI | Web Dev | Full Stack | Problem Solver</p>
-    <p style="margin-top: 10px; animation: slideInUp 1.4s ease-out;">📞 +91-XXXXXXXXXX | ✉️ nihalkiran@example.com | 🔗 <a href="#">LinkedIn</a></p>
+    <p>AI | Web Dev | Full Stack | Problem Solver</p>
+    <p style="margin-top: 10px;">📞 +91-XXXXXXXXXX | ✉️ nihalkiran@example.com | 🔗 <a href="#">LinkedIn</a></p>
   </header>
 
   <div class="container">
